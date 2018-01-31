@@ -11,30 +11,6 @@ import ccxt
 import numpy as np
 import mysql.connector
  
-def salva_banquinho(data1,symbol):
-            conn = mysql.connector.connect(user='henriqu2_bianca', password='verao2018',
-            host='77.104.156.92',database='henriqu2_storageCoin')
-            cursor = conn.cursor()
-            for i in range(len(data1.datetime)):    
-                cursor.execute('insert into Allcoin(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
-            conn.commit()
-    
-
-
-def mercados(exch = 'allcoin',moedas = ['ETH','LTC','BTG']):
-    if not exch:
-        exch = ccxt.allcoin()
-    if exch == 'allcoin':    
-        exch = ccxt.allcoin()   
-    else:
-        exch = ccxt.allcoin()   
-    markets = exch.load_markets()
-    market_pairs = list(markets.keys())
-    aux = []
-    for pair in market_pairs:
-        if (str(moedas[0]) in pair or str(moedas[1]) in pair or str(moedas[2]) in pair) and 'BTC' in pair: 
-            aux.append(pair)  
-    return(aux)       
 
 class capturador(object):
     
@@ -49,9 +25,9 @@ class capturador(object):
         
         
   
-    def get_allcoin_captura(self):
-            allcoin = ccxt.allcoin()
-            ohclv = allcoin.fetch_ohlcv(symbol=self.symbol,timeframe=self.time_frame,since=self.time1)
+    def get_bitlish_captura(self):
+            allcoin = ccxt.bitlish()
+            ohclv = bitlish.fetch_ohlcv(symbol=self.symbol,timeframe=self.time_frame,since=self.time1)
             ohclv = np.array(ohclv)
             mercado = self.symbol
             l_timestamp = list(ohclv[:,0]/1000)
@@ -84,7 +60,7 @@ class capturador(object):
                   
   
 def connecta():
-        conn = mysql.connector.connect(user='henriqu2_bianca', password='verao2018',
+        conn = mysql.connector.connect(user='henriqu2_lorena', password='verao2018',
             host='77.104.156.92',database='henriqu2_storageCoin')
         return(conn)          
 
@@ -93,7 +69,7 @@ def save(data1,symbol):
     conn = connecta()
     cursor = conn.cursor()
     for i in range(len(data1.datetime)):    
-        cursor.execute('insert into Allcoin(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
+        cursor.execute('insert into Bitlish(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
         conn.commit()
     conn.close()
 
@@ -104,13 +80,13 @@ def get(symbol,datainicio = None ,datafim = None):
         return(print("Insira a moeda, para poder capturar os valores \n do banco!"))
     conn = connecta()
     if datainicio is None and datafim is None:    
-        df =  pd.read_sql('Select * from Allcoin where mercado =' + '"' + str(symbol) + '"',conn)
+        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"',conn)
     elif datainicio is None:
-        df =  pd.read_sql('Select * from Allcoin where mercado =' + '"' + str(symbol) + '"' + 'and date <= ' + '"' + str(datafim) + '"',conn)
+        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"' + 'and date <= ' + '"' + str(datafim) + '"',conn)
     elif datafim is None:
-        df =  pd.read_sql('Select * from Allcoin where mercado =' + '"' + str(symbol) + '"' + 'and date >= ' + '"' + str(datainicio) + '"' ,conn)
+        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"' + 'and date >= ' + '"' + str(datainicio) + '"' ,conn)
     else:   
-        df =  pd.read_sql('Select * from Allcoin where mercado =' + '"' + str(symbol) + '"' +  'and date BETWEEN ' + '"' + str(datainicio) + '"' + ' and ' + '"' + str(datafim) + '"',conn)
+        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"' +  'and date BETWEEN ' + '"' + str(datainicio) + '"' + ' and ' + '"' + str(datafim) + '"',conn)
     conn.close()
     return df
             

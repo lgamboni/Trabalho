@@ -1,4 +1,5 @@
-## Trabalho do curso de Verão 2018 
+## Trabalho do curso de Verão 2018 - FGV
+### projeto final - introdução a programação (python)
 
   - Autor: Lorena Gamboni
   - Professor: Renato Rocha e Flavio Coelho

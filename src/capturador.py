@@ -26,7 +26,7 @@ class capturador(object):
         
   
     def get_bitlish_captura(self):
-            allcoin = ccxt.bitlish()
+            bitlish = ccxt.bitlish()
             ohclv = bitlish.fetch_ohlcv(symbol=self.symbol,timeframe=self.time_frame,since=self.time1)
             ohclv = np.array(ohclv)
             mercado = self.symbol
@@ -91,17 +91,6 @@ def get(symbol,datainicio = None ,datafim = None):
     return df
             
             
-#btg = capturador(360,'BTG/BTC','1d')
-#eth = capturador(360,'ETH/BTC','1d')
-#bcd = capturador(360,'BCD/BTC','1d')
-
-#df1 = btg.get_allcoin_captura()
-#df2 = eth.get_allcoin_captura()
-#df3 = bcd.get_allcoin_captura()
-
-#salva_banquinho(df1,'BTG/BTC')
-#salva_banquinho(df2,'ETH/BTC')
-#salva_banquinho(df3,'BCD/BTC')
 
 
 

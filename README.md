@@ -1,4 +1,3 @@
-![](https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_256,w_256,f_jpg/v1492172910/ht0sgoxvzc2fw7qkkyft.png)
 ## Trabalho do curso de Verão 2018 
 
   - Autor: Lorena Gamboni

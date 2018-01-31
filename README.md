@@ -1,11 +1,11 @@
-# CryptoMarketAnalysis  ![](https://crunchbase-productionres.cloudinary.com/image/upload/c_lpad,h_256,w_256,f_jpg/v1492172910/ht0sgoxvzc2fw7qkkyft.png)
+# CryptoMarketAnalysis  ![](https://crunchbase-production-res.cloudinary.com/image/upload/c_lpad,h_256,w_256,f_jpg/v1492172910/ht0sgoxvzc2fw7qkkyft.png)
 ## Trabalho do curso de Verão 2018 
 
   - Autor: Lorena Gamboni
   - Professor: Renato Rocha e Flavio Coelho
   - Exchange escolhida: Bitlish
   - Local da exchange: Inglaterra
-  - Mercados: ![](https://o56yv98bm.qnssl.com/coin_BCH.png?imageView2/2/w/19) Gold Bitcoin (BCH/BTC), ![](https://o56yv98bm.qnssl.com/coin_LTC.png?imageView2/2/w/19) Litecoin Diamond (LTC/BTC) e ![](https://o56yv98bm.qnssl.com/coin_ETH.png?imageView2/2/w/19) Ether (ETH/BTC)
+  - Mercados: ![](https://o56yv98bm.qnssl.com/coin_BCH.png?imageView2/2/w/19) Bitcoin Cash (BCH/BTC), ![](https://o56yv98bm.qnssl.com/coin_LTC.png?imageView2/2/w/19) Litecoin Diamond (LTC/BTC) e ![](https://o56yv98bm.qnssl.com/coin_ETH.png?imageView2/2/w/19) Ether (ETH/BTC)
 
 
 ### Estrutura do trabalho

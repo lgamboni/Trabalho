@@ -1,11 +1,11 @@
-# CryptoMarketAnalysis  ![](https://www.bitmex.com/img/bitmex-logo-alt-white.png)
+# CryptoMarketAnalysis  ![](https://crunchbase-productionres.cloudinary.com/image/upload/c_lpad,h_256,w_256,f_jpg/v1492172910/ht0sgoxvzc2fw7qkkyft.png)
 ## Trabalho do curso de Verão 2018 
 
   - Autor: Lorena Gamboni
   - Professor: Renato Rocha e Flavio Coelho
-  - Exchange escolhida: Bitmex
-  - Local da exchange: 
-  - Mercados: ![](https://o56yv98bm.qnssl.com/coin_BTG.png?imageView2/2/w/19) Gold Bitcoin (BTG/BTC), ![](https://o56yv98bm.qnssl.com/coin_BCD.png?imageView2/2/w/19) Bitcoin Diamond (BCD/BTC) e ![](https://o56yv98bm.qnssl.com/coin_ETH.png?imageView2/2/w/19) Ether (ETH/BTC)
+  - Exchange escolhida: Bitlish
+  - Local da exchange: Inglaterra
+  - Mercados: ![](https://o56yv98bm.qnssl.com/coin_BCH.png?imageView2/2/w/19) Gold Bitcoin (BCH/BTC), ![](https://o56yv98bm.qnssl.com/coin_LTC.png?imageView2/2/w/19) Litecoin Diamond (LTC/BTC) e ![](https://o56yv98bm.qnssl.com/coin_ETH.png?imageView2/2/w/19) Ether (ETH/BTC)
 
 
 ### Estrutura do trabalho
@@ -13,10 +13,9 @@
 
 #### 1 -  Obtendo os dados 
        
-Escolhida a exchange **`Bitmex`**, os dados são obtidos através da biblioteca **`ccxt`**
+Escolhida a exchange **`bitlish`**, os dados são obtidos através da biblioteca **`ccxt`**
 
   - **`src/capturador.py`**: possui uma classe chamada **`capturador`** que exectua a extração baseada nos seguintes argumentos: 
-   
     - **`max_dias`**: Quanditade de dias até a data atual
     - **`symbol`**: Tipo de moeda que se deseja obter os valores
     - **`time_frame`**: intervalo de tempo dos dados (ex.: 5 minutos)
@@ -28,15 +27,16 @@ Com o banco de dados online, uma tabela foi criada para os dados da exchange esc
 
 Estando o banco online, não há necessidade de recriar o storage toda vez que o script for rodado em um ambiente novo. 
 
-  - **`src/capturador.py`**: possui uma função chamada **`salva_banquinho`** que armazena os dados extraídos do capturador. Argumentos:
+  - **`src/capturador.py`**: possui uma função chamada **`save`** que armazena os dados extraídos do capturador e outra chamada **`get`**. Argumentos:
   
     - **`data1`**: objeto com os dados da moeda
     - **`symbol`**: Tipo de moeda que se deseja obter os valores
 
 
 #### 3 - Visualização dos dados apartir do banco. 
-
-
+    
+A visualização está no jupyter notebook
+  
 
 ##### Dependências para rodar os códigos
 

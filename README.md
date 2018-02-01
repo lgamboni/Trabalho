@@ -3,8 +3,8 @@
 
   - Autor: Lorena Gamboni
   - Professor: Renato Rocha e Flavio Coelho
-  - Exchange escolhida: Bitlish
-  - Local da exchange: Inglaterra
+  - Exchange escolhida: Gatecoin
+  - Local da exchange: Hong Kong
   - Mercados: ![](https://o56yv98bm.qnssl.com/coin_BCH.png?imageView2/2/w/19) Bitcoin Cash (BCH/BTC), ![](https://o56yv98bm.qnssl.com/coin_LTC.png?imageView2/2/w/19) Litecoin Diamond (LTC/BTC) e ![](https://o56yv98bm.qnssl.com/coin_ETH.png?imageView2/2/w/19) Ether (ETH/BTC)
 
 
@@ -22,15 +22,5 @@
   
   O banco de dados possui uma tabela para a bitlish, e recebe dados de diferentes times frame e moedas. Com uma função para salvar e para obter os dados do banco.
   
- 
-#### Visualização dos dados apartir do banco. 
     
-##### Você precisará, entre outros, de:
-
-  - bokeh
-  - numpy
-  - ccxt
-  - pandas
-  - requests
-  - mysql.connector
 

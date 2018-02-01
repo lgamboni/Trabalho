@@ -1,4 +1,4 @@
-## Trabalho do curso de Verão 2018 - FGV
+## Trabalho do curso de Verão 2018 - FGV ![](https://user-images.githubusercontent.com/1294454/28646817-508457f2-726c-11e7-9eeb-3528d2413a58.jpg)
 ### projeto final - introdução a programação (python)
 
   - Autor: Lorena Gamboni

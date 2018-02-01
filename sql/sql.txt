@@ -2,7 +2,7 @@ create Database 'storageCoin'
 use storageCoin
 
 
-CREATE TABLE Bitmex(
+CREATE TABLE coingate(
 	date CHARACTER(255) NOT NULL,
     timestamp REAL NOT NULL,
     open  REAL NOT NULL,

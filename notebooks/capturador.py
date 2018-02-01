@@ -19,7 +19,7 @@ class capturador(object):
         
         
   
-    def get_kraken_captura(self):
+    def get_gatecoin_captura(self):
             gatecoin = ccxt.gatecoin()
             ohclv = gatecoin.fetch_ohlcv(symbol=self.symbol,timeframe=self.time_frame,since=self.time1)
             ohclv = np.array(ohclv)
@@ -63,7 +63,10 @@ def save(data1,symbol):
     conn = connecta()
     cursor = conn.cursor()
     for i in range(len(data1.datetime)):    
-        cursor.execute('insert into gatecoin(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
+        if data1.low[i] is None:
+            cursor.execute('insert into gatecoin(date,timestamp,open,high,close,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) +  ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
+        else:
+            cursor.execute('insert into gatecoin(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
         conn.commit()
     conn.close()
 
@@ -84,3 +87,4 @@ def get(symbol,datainicio = None ,datafim = None):
     conn.close()
     return df
             
+

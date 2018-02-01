@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Jan 30 11:58:57 2018
-
-"""
- 
 import urllib, json
 import time,datetime
 import pandas as pd
@@ -25,9 +19,9 @@ class capturador(object):
         
         
   
-    def get_bitlish_captura(self):
-            bitlish = ccxt.bitlish()
-            ohclv = bitlish.fetch_ohlcv(symbol=self.symbol,timeframe=self.time_frame,since=self.time1)
+    def get_kraken_captura(self):
+            gatecoin = ccxt.gatecoin()
+            ohclv = gatecoin.fetch_ohlcv(symbol=self.symbol,timeframe=self.time_frame,since=self.time1)
             ohclv = np.array(ohclv)
             mercado = self.symbol
             l_timestamp = list(ohclv[:,0]/1000)
@@ -55,8 +49,8 @@ class capturador(object):
                          "open":l_open,
                          "volume":l_volume,
                          }
-            allcoin = pd.DataFrame(struct_df)
-            return(allcoin)
+            gatecoin = pd.DataFrame(struct_df)
+            return(gatecoin)
                   
   
 def connecta():
@@ -69,7 +63,7 @@ def save(data1,symbol):
     conn = connecta()
     cursor = conn.cursor()
     for i in range(len(data1.datetime)):    
-        cursor.execute('insert into Bitlish(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
+        cursor.execute('insert into gatecoin(date,timestamp,open,high,close,low,volume,mercado) values("'+str(data1.datetime[i]) +'",'+str(data1.timestamp[i]) + ','+str(data1.open[i]) + ',' +str(data1.high[i]) + ',' + str(data1.close[i]) + ',' + str(data1.low[i]) + ',' +str(data1.volume[i]) + ',"' + str(symbol) + '")')
         conn.commit()
     conn.close()
 
@@ -80,17 +74,13 @@ def get(symbol,datainicio = None ,datafim = None):
         return(print("Insira a moeda, para poder capturar os valores \n do banco!"))
     conn = connecta()
     if datainicio is None and datafim is None:    
-        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"',conn)
+        df =  pd.read_sql('Select * from gatecoin where mercado =' + '"' + str(symbol) + '"',conn)
     elif datainicio is None:
-        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"' + 'and date <= ' + '"' + str(datafim) + '"',conn)
+        df =  pd.read_sql('Select * from gatecoin where mercado =' + '"' + str(symbol) + '"' + 'and date <= ' + '"' + str(datafim) + '"',conn)
     elif datafim is None:
-        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"' + 'and date >= ' + '"' + str(datainicio) + '"' ,conn)
+        df =  pd.read_sql('Select * from gatecoin where mercado =' + '"' + str(symbol) + '"' + 'and date >= ' + '"' + str(datainicio) + '"' ,conn)
     else:   
-        df =  pd.read_sql('Select * from Bitlish where mercado =' + '"' + str(symbol) + '"' +  'and date BETWEEN ' + '"' + str(datainicio) + '"' + ' and ' + '"' + str(datafim) + '"',conn)
+        df =  pd.read_sql('Select * from gatecoin where mercado =' + '"' + str(symbol) + '"' +  'and date BETWEEN ' + '"' + str(datainicio) + '"' + ' and ' + '"' + str(datafim) + '"',conn)
     conn.close()
     return df
             
-            
-
-
-
